@@ -3,6 +3,9 @@
 ### Learning PHP a bit at a time
 
 - Loops
+- Arrays
+- GET params
+- POST params
 
 ### Extras
 
