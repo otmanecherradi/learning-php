@@ -11,6 +11,7 @@ if (!ic('user')) {
 
 
 include_once('../db/students.php');
+include_once('../db/absences.php');
 
 
 if (!ig('action')) {
@@ -34,6 +35,7 @@ switch (g('action')) {
     ]);
     break;
   case 'delete':
+    Absences::deleteByStudent(p('cne'));
     Students::delete(p('cne'));
     break;
 }

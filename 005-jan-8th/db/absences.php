@@ -87,4 +87,14 @@ class Absences
       'week' => $week,
     ]);
   }
+
+  static function deleteByStudent($cne)
+  {
+    global $pdo;
+
+    $stm = $pdo->prepare("delete from absences where cne = :cne;");
+    $stm->execute([
+      'cne' => $cne,
+    ]);
+  }
 }

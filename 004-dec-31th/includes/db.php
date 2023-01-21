@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 function getPDO(): PDO
 {
 
