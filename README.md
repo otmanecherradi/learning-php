@@ -6,6 +6,8 @@
 - Arrays
 - GET params
 - POST params
+- MVC (from scratch)
+- Laravel
 
 ### Extras
 
