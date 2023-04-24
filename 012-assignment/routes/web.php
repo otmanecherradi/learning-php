@@ -29,7 +29,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
 Route::get('/branches', [BranchController::class, 'index'])->middleware('auth');
 Route::get('/branches/create', [BranchController::class, 'create'])->middleware('auth');
-;
 Route::post('/branches/create', [BranchController::class, 'store'])->middleware('auth');
 Route::get('/branches/{branch:pk}', [BranchController::class, 'show'])->middleware('auth');
 Route::get('/branches/{branch:pk}/edit', [BranchController::class, 'edit'])->middleware('auth');
