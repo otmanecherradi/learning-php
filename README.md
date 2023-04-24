@@ -12,6 +12,7 @@
 ### Extras
 
 - Exercises
+- Project in Laravel
 
 ### Tools
 
