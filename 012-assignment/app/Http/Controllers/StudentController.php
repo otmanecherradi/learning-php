@@ -68,6 +68,7 @@ class StudentController extends Controller
     $student->last_name = $request->input('last_name');
     $student->gender = $request->input('gender');
     $student->branch_pk = $request->input('branch');
+    $student->user_id = $request->input('user');
     $student->save();
     return redirect('/students');
   }
