@@ -6,6 +6,7 @@ use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\Branch;
 use App\Models\Student;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
@@ -13,9 +14,14 @@ class StudentController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
+  public function index(Request $request)
   {
-    return view('students.index', array('students' => Student::all()));
+    $students = Student::all();
+
+    if ($request->query('branch_pk', null) != null)
+      $students = Student::query()->where('branch_pk', '=', $request->query('branch_pk'))->get();
+
+    return view('students.index', array('students' => $students, 'branches' => Branch::all()));
   }
 
   /**

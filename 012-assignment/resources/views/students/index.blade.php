@@ -68,6 +68,19 @@
                     Students
                 </h1>
 
+                <select
+                id="branch"
+                name="branch"
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                    <option value="---">---</option>
+                      @foreach ($branches as $branch)
+                        <option value="<?= $branch->pk ?>"
+                        <?= $branch->pk == request()->query('branch_pk') ? 'selected' : '' ?>
+                        ><?= $branch->name ?></option>
+                      @endforeach
+                </select>
+                
                 <a
                     href="/students/create"
                     class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
@@ -147,5 +160,18 @@
                 @endforeach
             </div>
         </main>
+
+        <script>
+          document.querySelector('select#branch').addEventListener('change', (evt) => {
+              const url = new URL(location.href);
+              if (evt.target.value !== '---') {
+                  url.searchParams.set('branch_pk', evt.target.value);
+              } else {
+                  url.searchParams.delete('branch_pk');
+              }
+
+              location.href = url.toString();
+          });
+      </script>
     </body>
 </html>
